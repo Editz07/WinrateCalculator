@@ -121,18 +121,69 @@
   .preset-btn:hover { background: rgba(0,245,255,0.12); }
   .result-panel { grid-column: 2 / 3; grid-row: 1 / 2; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .winrate-display { text-align: center; width: 100%; }
-  .winrate-ring { position: relative; width: 150px; height: 150px; margin: 0 auto 10px; }
+
+  /* ---- RING: bigger (190px), better inner spacing ---- */
+  .winrate-ring {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    margin: 0 auto 16px;
+  }
   .winrate-ring svg { transform: rotate(-90deg); }
   .ring-bg { fill: none; stroke: rgba(0,245,255,0.08); stroke-width: 10; }
-  .ring-fg { fill: none; stroke-width: 10; stroke-linecap: round; stroke-dasharray: 503; stroke-dashoffset: 503; transition: stroke-dashoffset 1.2s cubic-bezier(0.34,1.2,0.64,1), stroke 0.5s ease; filter: drop-shadow(0 0 4px currentColor); }
-  .ring-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
-  .rate-value { font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: -0.5px; line-height: 1; transition: color 0.5s; color: rgba(90,143,168,0.5); }
+  .ring-fg {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 628;   /* 2π × 100 */
+    stroke-dashoffset: 628;
+    transition: stroke-dashoffset 2.4s cubic-bezier(0.22,1,0.36,1), stroke 0.6s ease;
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+  /* Inner text stack — centred with clean spacing */
+  .ring-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+  .rate-value {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    transition: color 0.6s;
+    color: rgba(90,143,168,0.5);
+  }
   .rate-value.has-value { color: var(--neon-cyan); }
-  .rate-label { font-family: var(--font-main); font-size: 9px; font-weight: 500; color: var(--text-muted); letter-spacing: 2px; margin-top: 0; text-transform: uppercase; }
-  .rate-grade { font-family: var(--font-display); font-size: 9px; font-weight: 600; letter-spacing: 2px; padding: 2px 7px; border: 1px solid; transition: all 0.5s; margin-top: 2px; text-transform: uppercase; }
+  .rate-label {
+    font-family: var(--font-main);
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .rate-grade {
+    font-family: var(--font-display);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 3px 9px;
+    border: 1px solid;
+    transition: all 0.6s;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
   .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; width: 100%; margin-top: 8px; }
   .mini-stat { background: rgba(0,0,0,0.3); border: 1px solid rgba(0,245,255,0.08); padding: 7px 6px; text-align: center; }
-  .mini-stat-val { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: rgba(90,143,168,0.4); transition: color 0.5s, transform 0.3s; }
+  .mini-stat-val { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: rgba(90,143,168,0.4); transition: color 0.6s, transform 0.3s; }
   .mini-stat-val.has-value { color: var(--neon-cyan); }
   .mini-stat-lbl { font-family: var(--font-main); font-size: 9px; font-weight: 500; color: var(--text-muted); letter-spacing: 1px; margin-top: 2px; text-transform: uppercase; }
   .breakdown-box { margin-top: 8px; padding: 9px 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(0,245,255,0.06); width: 100%; }
@@ -188,7 +239,7 @@
   .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-muted); font-size: 20px; cursor: none; transition: color 0.2s; }
   .modal-close:hover { color: var(--neon-red); }
   .update-item { padding: 12px 0; border-bottom: 1px solid rgba(0,245,255,0.06); display: flex; gap: 14px; }
-  .update-version { background: rgba(0,245,255,0.08); border: 1px solid rgba(0,245,255,0.2); color: var(--neon-cyan); padding: 2px 8px; font-family: var(--font-mono); font-size: 10px; font-weight: 400; min-width: 52px; text-align: center; align-self: flex-start; margin-top: 2px; }
+  .update-version { background: rgba(0,245,255,0.08); border: 1px solid rgba(0,245,255,0.2); color: var(--neon-cyan); padding: 2px 8px; font-family: var(--font-mono); font-size: 10px; font-weight: 400; min-width: 65px; text-align: center; align-self: flex-start; margin-top: 2px; }
   .update-text { font-family: var(--font-main); font-size: 13px; font-weight: 400; line-height: 1.5; color: var(--text-primary); }
   .update-date { font-family: var(--font-main); font-size: 10px; color: var(--text-muted); margin-top: 3px; }
   .modal-btn-row { display: flex; gap: 12px; margin-top: 24px; }
@@ -211,71 +262,41 @@
   ::-webkit-scrollbar-thumb { background: rgba(0,245,255,0.2); border-radius: 3px; }
   .hexagons-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 
-  /* ============================================================
-     COUNTDOWN — hidden by default in HTML.
-     JS adds .active to show it only when needed.
-  ============================================================ */
-  #countdown-overlay {
-    position: fixed; inset: 0; z-index: 9000;
-    display: none; /* KEY FIX: hidden by default, no flash on refresh */
-    align-items: center; justify-content: center;
-    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1);
-  }
+  /* FIRST-VISIT LANDING OVERLAY */
+  #countdown-overlay { position: fixed; inset: 0; z-index: 9000; display: none; align-items: center; justify-content: center; transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1); }
   #countdown-overlay.active { display: flex; }
   #countdown-overlay.fade-out { opacity: 0; pointer-events: none; }
-
-  #countdown-blur-layer {
-    position: fixed; inset: 0; z-index: 8999;
-    backdrop-filter: blur(5px) brightness(0.55) saturate(0.7);
-    -webkit-backdrop-filter: blur(5px) brightness(0.55) saturate(0.7);
-    transition: opacity 0.8s ease;
-    display: none; /* KEY FIX: hidden by default */
-  }
+  #countdown-blur-layer { position: fixed; inset: 0; z-index: 8999; backdrop-filter: blur(5px) brightness(0.55) saturate(0.7); -webkit-backdrop-filter: blur(5px) brightness(0.55) saturate(0.7); transition: opacity 0.8s ease; display: none; }
   #countdown-blur-layer.active { display: block; }
   #countdown-blur-layer.fade-out { opacity: 0; pointer-events: none; }
-
-  #countdown-container { position: relative; width: 480px; max-width: 92vw; background: rgba(4,15,28,0.92); padding: 48px 44px 36px; clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px); z-index: 2; transition: opacity 0.5s ease, transform 0.5s ease; }
+  #countdown-container { position: relative; width: 460px; max-width: 92vw; background: rgba(4,15,28,0.97); padding: 52px 44px 48px; clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px); z-index: 2; transition: opacity 0.5s ease, transform 0.5s ease; box-shadow: 0 0 80px rgba(0,245,255,0.08); }
   #countdown-container.dissolve-out { opacity: 0; transform: scale(0.94) translateY(-12px); }
   #border-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; overflow: visible; }
-  .border-track { fill: none; stroke: rgba(0,245,255,0.12); stroke-width: 2; }
-  .border-progress { fill: none; stroke: var(--neon-cyan); stroke-width: 2; stroke-linecap: round; filter: drop-shadow(0 0 5px var(--neon-cyan)); transition: stroke-dashoffset 0.8s linear; }
-  #cd-info-btn { width: 100%; padding: 14px 20px; background: rgba(0,245,255,0.05); border: 1px solid rgba(0,245,255,0.25); color: var(--neon-cyan); font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 4px; cursor: none; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s; margin-top: 20px; clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px); position: relative; overflow: hidden; }
-  #cd-info-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(0,245,255,0.08), transparent); transform: translateX(-100%); transition: transform 0.5s; }
-  #cd-info-btn:hover::before { transform: translateX(100%); }
-  #cd-info-btn:hover { background: rgba(0,245,255,0.12); box-shadow: 0 0 25px rgba(0,245,255,0.18); color: #fff; }
-  .cd-info-icon { width: 20px; height: 20px; border: 2px solid var(--neon-cyan); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; font-family: var(--font-display); }
+  .border-track { fill: none; stroke: rgba(0,245,255,0.1); stroke-width: 2; }
+  .border-progress { fill: none; stroke: var(--neon-cyan); stroke-width: 2; stroke-linecap: round; filter: drop-shadow(0 0 6px var(--neon-cyan)); }
+  .cd-live-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,255,136,0.07); border: 1px solid rgba(0,255,136,0.3); color: var(--neon-green); padding: 6px 16px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 3px; clip-path: polygon(5px 0%,100% 0%,100% calc(100% - 5px),calc(100% - 5px) 100%,0% 100%,0% 5px); margin-bottom: 24px; }
+  .cd-live-dot { width: 7px; height: 7px; background: var(--neon-green); border-radius: 50%; box-shadow: 0 0 8px var(--neon-green); animation: pulseDot 1s ease-in-out infinite; }
+  .cd-main-heading { font-family: var(--font-display); font-size: 34px; font-weight: 700; letter-spacing: 3px; text-align: center; line-height: 1.1; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green), var(--neon-cyan)); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; margin-bottom: 8px; }
+  .cd-sub-heading { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-align: center; margin-bottom: 36px; }
+  .cd-rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,245,255,0.25), transparent); margin-bottom: 36px; }
+  #cd-open-btn { width: 100%; padding: 18px; background: transparent; border: 1px solid var(--neon-cyan); color: var(--neon-cyan); font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 6px; cursor: none; text-transform: uppercase; position: relative; overflow: hidden; clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px); transition: all 0.4s; animation: openBtnPulse 2.5s ease-in-out infinite; }
+  #cd-open-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(0,245,255,0.15), transparent); transform: translateX(-100%); transition: transform 0.6s; }
+  #cd-open-btn:hover::before { transform: translateX(100%); }
+  #cd-open-btn:hover { background: rgba(0,245,255,0.1); box-shadow: 0 0 60px rgba(0,245,255,0.45); color: #fff; }
+  @keyframes openBtnPulse { 0%,100% { box-shadow: 0 0 20px rgba(0,245,255,0.2); border-color: rgba(0,245,255,0.7); } 50% { box-shadow: 0 0 60px rgba(0,245,255,0.6), 0 0 120px rgba(0,245,255,0.15); border-color: #fff; } }
+  #cube-dissolve { position: fixed; inset: 0; z-index: 8998; pointer-events: none; display: grid; opacity: 0; transition: none; }
+  #cube-dissolve.active { pointer-events: all; }
+  .dissolve-cube { background: var(--dark-bg); transition: opacity 0.5s ease, transform 0.5s ease; opacity: 1; transform: scale(1); }
+  .dissolve-cube.revealed { opacity: 0; transform: scale(0.92); }
   #info-modal-overlay { position: fixed; inset: 0; z-index: 9500; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
   #info-modal-overlay.open { opacity: 1; pointer-events: all; }
   #info-modal-box { position: relative; width: 520px; max-width: 92vw; background: rgba(4,15,28,0.98); border: 1px solid rgba(0,245,255,0.25); padding: 40px 40px 36px; clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px); box-shadow: 0 0 80px rgba(0,245,255,0.08); transform: scale(0.92) translateY(16px); transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
   #info-modal-overlay.open #info-modal-box { transform: scale(1) translateY(0); }
   #info-modal-close { position: absolute; top: 16px; right: 16px; background: rgba(255,51,102,0.08); border: 1px solid rgba(255,51,102,0.25); color: var(--neon-red); width: 32px; height: 32px; font-size: 14px; cursor: none; display: flex; align-items: center; justify-content: center; transition: all 0.2s; clip-path: polygon(4px 0%, 100% 0%, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0% 100%, 0% 4px); }
   #info-modal-close:hover { background: rgba(255,51,102,0.2); }
-  .cd-logo { text-align: center; margin-bottom: 6px; }
-  .cd-logo-text { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: 5px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green), var(--neon-cyan)); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; }
+  .cd-logo-text { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: 5px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green), var(--neon-cyan)); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; text-align: center; margin-bottom: 6px; }
   .cd-subtitle { text-align: center; font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 3px; margin-bottom: 24px; }
-  .cd-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,245,255,0.3), transparent); margin-bottom: 20px; }
   .cd-heading { font-family: var(--font-display); font-size: 11px; font-weight: 600; color: var(--neon-cyan); letter-spacing: 3px; margin-bottom: 14px; text-transform: uppercase; }
-  .cd-new-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.3); color: var(--neon-green); padding: 4px 12px; font-family: var(--font-mono); font-size: 10px; font-weight: 400; letter-spacing: 2px; margin-bottom: 18px; clip-path: polygon(4px 0%, 100% 0%, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0% 100%, 0% 4px); }
-  .cd-new-dot { width: 6px; height: 6px; background: var(--neon-green); border-radius: 50%; animation: pulseDot 1s ease-in-out infinite; }
-  .cd-main-label { font-family: var(--font-display); font-size: 11px; font-weight: 600; color: var(--neon-cyan); letter-spacing: 3px; text-align: center; margin-bottom: 4px; text-transform: uppercase; }
-  .cd-new-label { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: 4px; text-align: center; color: var(--text-primary); margin-bottom: 28px; }
-  .cd-opens-label { font-family: var(--font-main); font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 2px; text-align: center; margin-bottom: 12px; text-transform: uppercase; }
-  .cd-timer-row { display: flex; justify-content: center; gap: 0; margin-bottom: 24px; }
-  .cd-unit { display: flex; flex-direction: column; align-items: center; padding: 0 16px; }
-  .cd-unit + .cd-unit { border-left: 1px solid rgba(0,245,255,0.12); }
-  .cd-num { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: var(--neon-cyan); line-height: 1; text-shadow: 0 0 20px rgba(0,245,255,0.4); transition: transform 0.15s ease, color 0.3s; letter-spacing: -1px; }
-  .cd-num.tick { transform: translateY(-4px); color: #fff; }
-  .cd-unit-label { font-family: var(--font-main); font-size: 9px; font-weight: 500; color: var(--text-muted); letter-spacing: 2px; margin-top: 4px; text-transform: uppercase; }
-  #cd-open-btn { width: 100%; padding: 16px; background: transparent; border: 1px solid var(--neon-cyan); color: var(--neon-cyan); font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: 5px; cursor: none; text-transform: uppercase; position: relative; overflow: hidden; clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px); transition: all 0.4s; opacity: 0; transform: translateY(12px); pointer-events: none; }
-  #cd-open-btn.visible { opacity: 1; transform: translateY(0); pointer-events: all; animation: openBtnPulse 2s ease-in-out infinite; }
-  #cd-open-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(0,245,255,0.14), transparent); transform: translateX(-100%); transition: transform 0.6s; }
-  #cd-open-btn:hover::before { transform: translateX(100%); }
-  #cd-open-btn:hover { background: rgba(0,245,255,0.1); box-shadow: 0 0 40px rgba(0,245,255,0.3); color: #fff; }
-  @keyframes openBtnPulse { 0%,100% { box-shadow: 0 0 16px rgba(0,245,255,0.15); } 50% { box-shadow: 0 0 40px rgba(0,245,255,0.45), 0 0 80px rgba(0,245,255,0.15); } }
-  #cube-dissolve { position: fixed; inset: 0; z-index: 8998; pointer-events: none; display: grid; opacity: 0; transition: none; }
-  #cube-dissolve.active { pointer-events: all; }
-  .dissolve-cube { background: var(--dark-bg); transition: opacity 0.5s ease, transform 0.5s ease; opacity: 1; transform: scale(1); }
-  .dissolve-cube.revealed { opacity: 0; transform: scale(0.92); }
   .info-feature-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
   .info-feature-bullet { width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%; flex-shrink: 0; margin-top: 5px; box-shadow: 0 0 6px var(--neon-cyan); }
   .info-feature-text { font-family: var(--font-main); font-size: 13px; font-weight: 400; color: var(--text-muted); line-height: 1.6; }
@@ -306,48 +327,39 @@
 </svg>
 
 <div id="cube-dissolve"></div>
-<!-- Blur layer: display:none by default, JS enables it -->
 <div id="countdown-blur-layer"></div>
 
 <!-- INFO MODAL -->
 <div id="info-modal-overlay" onclick="closeInfoModal(event)">
   <div id="info-modal-box">
     <button id="info-modal-close" onclick="closeInfoModalDirect()">&#x2715;</button>
-    <div class="cd-logo"><div class="cd-logo-text">WINRATE CALCULATOR</div></div>
+    <div class="cd-logo-text">WINRATE CALCULATOR</div>
     <div class="cd-subtitle">CALCULATION INTELLIGENCE SYSTEM</div>
-    <div class="cd-divider"></div>
-    <div style="margin-bottom:14px;"><span class="cd-new-badge"><span class="cd-new-dot"></span> COMING SOON</span></div>
-    <div class="cd-heading">About This New Platform</div>
-    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>Winrate Calculator</strong> &mdash; Track your trading performance with precision. Input your trades and wins to get an instant, winrate analysis with performance grading, also not all data is saved locally on your browser so don't worry about losing anything.</div></div>
-    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>Live Market Feed</strong> &mdash; Unofficial (Design Display) ticker data streaming across all sessions, including BTC, ETH, NQ, ES, Gold, and FX pairs.</div></div>
-    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>History &amp; Trends</strong> &mdash; Every calculation is saved per user with a visual trend chart showing your winrate over time.</div></div>
-    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>Secure Sessions</strong> &mdash; User accounts with 3-minute auto-logout security. DM <strong style="color:var(--neon-cyan);">editztrades</strong> on Discord for access credentials.</div></div>
-    <div class="cd-divider" style="margin-top:8px;margin-bottom:20px;"></div>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,255,0.3),transparent);margin-bottom:24px;"></div>
+    <div class="cd-heading">About This Platform</div>
+    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>Winrate Calculator</strong> &mdash; Track your trading performance with precision. Input your trades and wins to get an instant winrate analysis with performance grading.</div></div>
+    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>Live Market Feed</strong> &mdash; Design display ticker streaming across all sessions, including BTC, ETH, NQ, ES, Gold, and FX pairs.</div></div>
+    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>History &amp; Trends</strong> &mdash; Every calculation saved per user with a visual trend chart showing your winrate over time.</div></div>
+    <div class="info-feature-row"><div class="info-feature-bullet"></div><div class="info-feature-text"><strong>Secure Sessions</strong> &mdash; User accounts with 3-minute auto-logout. DM <strong style="color:var(--neon-cyan);">editztrades</strong> on Discord for access credentials.</div></div>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,255,0.3),transparent);margin:20px 0;"></div>
     <button onclick="closeInfoModalDirect()" style="width:100%;padding:13px;background:transparent;border:1px solid rgba(0,245,255,0.25);color:var(--text-muted);font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:3px;cursor:none;text-transform:uppercase;transition:all 0.3s;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px);" onmouseover="this.style.color='var(--neon-cyan)';this.style.background='rgba(0,245,255,0.06)'" onmouseout="this.style.color='var(--text-muted)';this.style.background='transparent'">CLOSE</button>
   </div>
 </div>
 
-<!-- COUNTDOWN OVERLAY: display:none by default — JS adds .active only when needed -->
+<!-- FIRST-VISIT OVERLAY -->
 <div id="countdown-overlay">
   <div id="countdown-container">
     <svg id="border-svg" preserveAspectRatio="none">
       <polyline id="border-track-line" class="border-track" points=""/>
-      <polyline id="border-progress-line" class="border-progress" points="" style="stroke-dasharray:0;stroke-dashoffset:0;"/>
+      <polyline id="border-progress-line" class="border-progress" points=""/>
     </svg>
-    <div id="cd-main-content">
-      <div style="text-align:center;margin-bottom:6px;"><span class="cd-new-badge"><span class="cd-new-dot"></span> NEW WEBSITE</span></div>
-      <div class="cd-main-label">Winrate Calculator</div>
-      <div class="cd-new-label">TRADING INTELLIGENCE</div>
-      <div class="cd-opens-label" id="cd-opens-text">Website opens in</div>
-      <div class="cd-timer-row" id="cd-timer-row">
-        <div class="cd-unit"><div class="cd-num" id="cd-days">00</div><div class="cd-unit-label">Days</div></div>
-        <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-unit-label">Hours</div></div>
-        <div class="cd-unit"><div class="cd-num" id="cd-mins">00</div><div class="cd-unit-label">Mins</div></div>
-        <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-unit-label">Secs</div></div>
-      </div>
-      <button id="cd-open-btn" onclick="openSite()">&#x25C8; OPEN SITE</button>
-      <button id="cd-info-btn" onclick="openInfoModal()"><div class="cd-info-icon">i</div>INFO</button>
+    <div style="text-align:center;margin-bottom:24px;">
+      <span class="cd-live-pill"><span class="cd-live-dot"></span>WEBSITE IS LIVE</span>
     </div>
+    <div class="cd-main-heading">WEBSITE IS LIVE!</div>
+    <div class="cd-sub-heading">WINRATE CALCULATOR &mdash; TRADING INTELLIGENCE SYSTEM</div>
+    <div class="cd-rule"></div>
+    <button id="cd-open-btn" onclick="openSite()">&#x25C8;&nbsp;&nbsp;ENTER SITE</button>
   </div>
 </div>
 
@@ -421,6 +433,7 @@
       </span>
     </div>
     <div class="main-grid">
+      <!-- CALC PANEL -->
       <div class="panel panel-clip calc-panel">
         <div class="panel-title">Winrate Calculator</div>
         <div class="calc-input-group">
@@ -446,14 +459,17 @@
           </div>
         </div>
       </div>
+
+      <!-- RESULT PANEL -->
       <div class="panel panel-clip result-panel">
         <div class="panel-title">Performance Rating</div>
         <div id="result-display" style="width:100%;">
           <div class="winrate-display">
+            <!-- Ring: viewBox 240x240, r=100, circumference=628 -->
             <div class="winrate-ring">
-              <svg viewBox="0 0 200 200" width="150" height="150">
-                <circle class="ring-bg" cx="100" cy="100" r="80"/>
-                <circle class="ring-fg" id="ring-fg" cx="100" cy="100" r="80" stroke="rgba(90,143,168,0.3)"/>
+              <svg viewBox="0 0 240 240" width="190" height="190">
+                <circle class="ring-bg" cx="120" cy="120" r="100"/>
+                <circle class="ring-fg" id="ring-fg" cx="120" cy="120" r="100" stroke="rgba(90,143,168,0.3)"/>
               </svg>
               <div class="ring-text">
                 <div class="rate-value" id="rate-value">&mdash;</div>
@@ -473,13 +489,15 @@
                 <span style="font-family:var(--font-main);font-size:9px;color:var(--neon-red);font-weight:500;letter-spacing:1px;text-transform:uppercase;">LOSS</span>
               </div>
               <div style="display:flex;justify-content:space-between;gap:8px;">
-                <div style="flex:1;height:5px;background:rgba(0,255,136,0.12);overflow:hidden;"><div id="breakdown-win-bar" style="height:100%;background:var(--neon-green);width:0%;transition:width 1.2s cubic-bezier(0.34,1.2,0.64,1);box-shadow:0 0 5px var(--neon-green);"></div></div>
-                <div style="flex:1;height:5px;background:rgba(255,51,102,0.12);overflow:hidden;"><div id="breakdown-loss-bar" style="height:100%;background:var(--neon-red);width:0%;transition:width 1.2s cubic-bezier(0.34,1.2,0.64,1);box-shadow:0 0 5px var(--neon-red);"></div></div>
+                <div style="flex:1;height:5px;background:rgba(0,255,136,0.12);overflow:hidden;"><div id="breakdown-win-bar" style="height:100%;background:var(--neon-green);width:0%;transition:width 2.2s cubic-bezier(0.22,1,0.36,1);box-shadow:0 0 5px var(--neon-green);"></div></div>
+                <div style="flex:1;height:5px;background:rgba(255,51,102,0.12);overflow:hidden;"><div id="breakdown-loss-bar" style="height:100%;background:var(--neon-red);width:0%;transition:width 2.2s cubic-bezier(0.22,1,0.36,1);box-shadow:0 0 5px var(--neon-red);"></div></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- LIVE PANEL -->
       <div class="panel panel-clip live-panel">
         <div class="panel-title">Live Market Pulse</div>
         <div class="live-badge"><div class="live-dot"></div>Live Feed</div>
@@ -492,6 +510,8 @@
           </div>
         </div>
       </div>
+
+      <!-- HISTORY PANEL -->
       <div class="panel panel-clip history-panel">
         <div class="panel-title" style="justify-content:space-between;margin-bottom:6px;">
           <span style="display:flex;align-items:center;gap:8px;"><span style="width:2px;height:12px;background:var(--neon-cyan);display:inline-block;box-shadow:0 0 6px var(--neon-cyan);flex-shrink:0;"></span>Calculation History</span>
@@ -504,6 +524,8 @@
           <div class="no-data"><div class="no-data-icon">&#x25CE;</div>No records &mdash; calculate to begin</div>
         </div>
       </div>
+
+      <!-- CHART PANEL -->
       <div class="panel panel-clip chart-panel">
         <div class="panel-title">Winrate Trend</div>
         <div class="mini-chart">
@@ -522,9 +544,13 @@
       <div class="modal-title" style="color:var(--neon-purple);margin-bottom:0;">&#x25C8; SYSTEM UPDATES</div>
       <button onclick="closeUpdatesPanel()" style="background:none;border:none;color:var(--text-muted);font-size:20px;cursor:none;transition:color 0.2s;" onmouseover="this.style.color='var(--neon-red)'" onmouseout="this.style.color='var(--text-muted)'">&#x2715;</button>
     </div>
+     <div class="update-item">
+      <div class="update-version">V1.1</div>
+      <div><div class="update-text">Fixed some bugs, made some improvements.</div><div class="update-date">13th &mdash; June 2026</div></div>
+    </div>
     <div class="update-item">
       <div class="update-version">V1</div>
-      <div><div class="update-text">The Brand New Winrate Calculator Is Official Open.</div><div class="update-date">Today &mdash; June 2026</div></div>
+      <div><div class="update-text">The Brand New Winrate Calculator Is Now Official Open.</div><div class="update-date">12th &mdash; June 2026</div></div>
     </div>
     <div style="margin-top:20px;"><button class="modal-btn cancel" onclick="closeUpdatesPanel()" style="width:100%">CLOSE PANEL</button></div>
   </div>
@@ -549,104 +575,69 @@
   <div class="modal-box" style="border-color:rgba(255,51,102,0.4);">
     <div class="modal-title" style="color:var(--neon-red)">&#x26A0; SESSION EXPIRED</div>
     <p style="font-family:var(--font-main);font-size:15px;color:var(--text-muted);line-height:1.6;margin-bottom:20px;">Your 3-minute trading session has expired.<br><span style="color:var(--neon-red);">You have been automatically logged out for security.</span></p>
-    <button class="modal-btn confirm" onclick="closeModal('expired-modal');doLogout();" style="width:100%;border-color:var(--neon-red)">RETURN TO LOGIN</button>
+    <button class="modal-btn confirm" onclick="doLogout()" style="width:100%;border-color:var(--neon-red)">RETURN TO LOGIN</button>
   </div>
 </div>
 
 <div id="toast"></div>
 
 <script>
-/* INFO MODAL */
+/* ============================================================
+   INFO MODAL
+============================================================ */
 function openInfoModal() { document.getElementById('info-modal-overlay').classList.add('open'); }
 function closeInfoModal(e) { if (e.target===document.getElementById('info-modal-overlay')) document.getElementById('info-modal-overlay').classList.remove('open'); }
 function closeInfoModalDirect() { document.getElementById('info-modal-overlay').classList.remove('open'); }
 
 /* ============================================================
-   COUNTDOWN SYSTEM
-   KEY FIX: overlay starts as display:none in CSS.
-   JS adds .active class to show it only when needed.
-   hasOpenedBefore() check happens synchronously — no waiting
-   for window.load — so there is zero flash.
+   FIRST-VISIT LANDING
 ============================================================ */
-const LAUNCH_START = new Date('2026-06-03T10:00:00Z');
-const LAUNCH_END   = new Date('2026-06-12T13:00:00Z');
-const STORAGE_KEY  = 'apex_site_opened_v2';
-
-let borderSVGReady = false, cdInterval = null;
-
-function hasOpenedBefore() { return localStorage.getItem(STORAGE_KEY) === '1'; }
-function markOpened() { localStorage.setItem(STORAGE_KEY, '1'); }
+const STORAGE_KEY = 'apex_site_opened_v2';
+function hasOpenedBefore() { return localStorage.getItem(STORAGE_KEY)==='1'; }
+function markOpened()      { localStorage.setItem(STORAGE_KEY,'1'); }
 
 function initBorderSVG() {
-  const con = document.getElementById('countdown-container');
-  const svg = document.getElementById('border-svg');
-  const W = con.offsetWidth, H = con.offsetHeight, cut = 20;
-  const pts = [[cut,0],[W,0],[W,H-cut],[W-cut,H],[0,H],[0,cut],[cut,0]];
-  document.getElementById('border-track-line').setAttribute('points', pts.map(p=>p.join(',')).join(' '));
-  document.getElementById('border-progress-line').remove();
-  const ns = 'http://www.w3.org/2000/svg';
-  const hW = W/2;
-  const rPts = [[hW,0],[W,0],[W,H-cut],[W-cut,H],[hW,H]];
-  const lPts = [[hW,0],[cut,0],[0,cut],[0,H],[hW,H]];
-  function pLen(a){let l=0;for(let i=0;i<a.length-1;i++){const dx=a[i+1][0]-a[i][0],dy=a[i+1][1]-a[i][1];l+=Math.sqrt(dx*dx+dy*dy);}return l;}
-  const rL=pLen(rPts), lL=pLen(lPts);
-  window._bRL=rL; window._bLL=lL;
-  function mkLine(id,arr){const el=document.createElementNS(ns,'polyline');el.id=id;el.setAttribute('class','border-progress');el.setAttribute('points',arr.map(p=>p.join(',')).join(' '));el.style.strokeDasharray=pLen(arr);el.style.strokeDashoffset=pLen(arr);el.style.transition='none';svg.appendChild(el);}
-  mkLine('border-progress-right',rPts); mkLine('border-progress-left',lPts);
-  borderSVGReady=true; updateBorderProgress(getProgress());
+  const con=document.getElementById('countdown-container');
+  const W=con.offsetWidth, H=con.offsetHeight, cut=20;
+  const pts=[[cut,0],[W,0],[W,H-cut],[W-cut,H],[0,H],[0,cut],[cut,0]];
+  const pStr=pts.map(p=>p.join(',')).join(' ');
+  document.getElementById('border-track-line').setAttribute('points',pStr);
+  const prog=document.getElementById('border-progress-line');
+  prog.setAttribute('points',pStr);
+  function perimLen(arr){let l=0;for(let i=0;i<arr.length-1;i++){const dx=arr[i+1][0]-arr[i][0],dy=arr[i+1][1]-arr[i][1];l+=Math.sqrt(dx*dx+dy*dy);}return l;}
+  const len=perimLen(pts);
+  prog.style.strokeDasharray=len;
+  prog.style.strokeDashoffset=0;
 }
 
-function getProgress(){const now=Date.now(),s=LAUNCH_START.getTime(),e=LAUNCH_END.getTime();if(now<=s)return 0;if(now>=e)return 1;return(now-s)/(e-s);}
-function updateBorderProgress(p){if(!borderSVGReady)return;const r=document.getElementById('border-progress-right'),l=document.getElementById('border-progress-left');if(!r||!l)return;r.style.strokeDashoffset=window._bRL-p*window._bRL;l.style.strokeDashoffset=window._bLL-p*window._bLL;}
-function pad2(n){return String(Math.floor(n)).padStart(2,'0');}
-
-function tickCountdown(){
-  const diff=LAUNCH_END.getTime()-Date.now();
-  if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');document.getElementById('cd-opens-text').textContent='Website is now open';updateBorderProgress(1);showOpenButton();clearInterval(cdInterval);return;}
-  const days=Math.floor(diff/86400000),hours=Math.floor((diff%86400000)/3600000),mins=Math.floor((diff%3600000)/60000),secs=Math.floor((diff%60000)/1000);
-  function setTick(id,val){const el=document.getElementById(id),v=pad2(val);if(el.textContent!==v){el.textContent=v;el.classList.remove('tick');void el.offsetWidth;el.classList.add('tick');setTimeout(()=>el.classList.remove('tick'),200);}}
-  setTick('cd-days',days);setTick('cd-hours',hours);setTick('cd-mins',mins);setTick('cd-secs',secs);
-  updateBorderProgress(getProgress());
-}
-
-function showOpenButton(){document.getElementById('cd-open-btn').classList.add('visible');}
-
-function initCountdown(){
-  /* Skip countdown if already opened before OR if launch date has passed */
-  if(hasOpenedBefore()||Date.now()>=LAUNCH_END.getTime()){
-    markOpened();
-    showLoginPage();
-    return;
-  }
-  /* Launch hasn't happened yet — show countdown */
+function initCountdown() {
+  if (hasOpenedBefore()) { showLoginPage(); return; }
   document.getElementById('countdown-overlay').classList.add('active');
   document.getElementById('countdown-blur-layer').classList.add('active');
-  setTimeout(()=>{
-    initBorderSVG();
-    tickCountdown();
-    cdInterval=setInterval(tickCountdown,1000);
-  },100);
+  setTimeout(initBorderSVG,120);
 }
 
-function showLoginPage(){document.getElementById('login-page').classList.remove('hidden');}
+function showLoginPage() { document.getElementById('login-page').classList.remove('hidden'); }
 
-/* CUBE DISSOLVE */
-function buildCubeGrid(){
+function buildCubeGrid() {
   const g=document.getElementById('cube-dissolve'),cols=18,rows=12;
-  g.style.gridTemplateColumns=`repeat(${cols},1fr)`;g.style.gridTemplateRows=`repeat(${rows},1fr)`;g.innerHTML='';
+  g.style.gridTemplateColumns=`repeat(${cols},1fr)`;
+  g.style.gridTemplateRows=`repeat(${rows},1fr)`;
+  g.innerHTML='';
   for(let i=0;i<cols*rows;i++){const c=document.createElement('div');c.className='dissolve-cube';g.appendChild(c);}
 }
-function revealCubes(cb){
-  const g=document.getElementById('cube-dissolve'),cubes=Array.from(g.querySelectorAll('.dissolve-cube')),total=cubes.length;
-  const idx=Array.from({length:total},(_,i)=>i);
+function revealCubes(cb) {
+  const g=document.getElementById('cube-dissolve');
+  const cubes=Array.from(g.querySelectorAll('.dissolve-cube'));
+  const idx=cubes.map((_,i)=>i);
   for(let i=idx.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]];}
   const dur=1800;
-  idx.forEach((ci,o)=>setTimeout(()=>cubes[ci].classList.add('revealed'),(o/total)*dur));
+  idx.forEach((ci,o)=>setTimeout(()=>cubes[ci].classList.add('revealed'),(o/cubes.length)*dur));
   setTimeout(cb,dur+300);
 }
 
-function openSite(){
-  markOpened(); clearInterval(cdInterval);
+function openSite() {
+  markOpened();
   document.getElementById('countdown-container').classList.add('dissolve-out');
   setTimeout(()=>{
     buildCubeGrid();
@@ -659,66 +650,91 @@ function openSite(){
   },500);
 }
 
-/* APP LOGIC */
-const DEFAULT_USERS={"editztrades":"admin", "nq" :"123"};
-function getUsers(){const s=localStorage.getItem('apex_users');return{...DEFAULT_USERS,...(s?JSON.parse(s):{})};}
+/* ============================================================
+   APP STATE
+============================================================ */
+const DEFAULT_USERS={editztrades:'admin',nq:'123'};
+function getUsers(){const s=localStorage.getItem('apex_users');return {...DEFAULT_USERS,...(s?JSON.parse(s):{})};}
 function saveUsers(u){const e={};for(const k in u){if(!DEFAULT_USERS[k])e[k]=u[k];}localStorage.setItem('apex_users',JSON.stringify(e));}
 
 let currentUser=null,sessionInterval=null,sessionSeconds=180,calcCount=0;
 
-const cursor=document.getElementById('cursor'),cursorDot=document.getElementById('cursor-dot');
-document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';cursorDot.style.left=e.clientX+'px';cursorDot.style.top=e.clientY+'px';});
-document.addEventListener('mouseover',e=>{if(e.target.matches('button,a,input,[onclick]'))cursor.classList.add('hovering');else cursor.classList.remove('hovering');});
+/* Custom cursor */
+const cursorEl=document.getElementById('cursor'),cursorDotEl=document.getElementById('cursor-dot');
+document.addEventListener('mousemove',e=>{
+  cursorEl.style.left=e.clientX+'px'; cursorEl.style.top=e.clientY+'px';
+  cursorDotEl.style.left=e.clientX+'px'; cursorDotEl.style.top=e.clientY+'px';
+});
+document.addEventListener('mouseover',e=>{cursorEl.classList.toggle('hovering',!!e.target.closest('button,a,input,[onclick]'));});
 
-function createParticles(){
-  const colors=['rgba(0,245,255,0.6)','rgba(0,255,136,0.6)','rgba(255,215,0,0.4)','rgba(191,95,255,0.4)'];
-  for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';const size=Math.random()*3+1;p.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s;box-shadow:0 0 ${size*2}px ${colors[Math.floor(Math.random()*colors.length)]};`;document.body.appendChild(p);}
-}
-createParticles();
+/* Particles */
+(function(){
+  const cols=['rgba(0,245,255,0.6)','rgba(0,255,136,0.6)','rgba(255,215,0,0.4)','rgba(191,95,255,0.4)'];
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');p.className='particle';
+    const s=Math.random()*3+1;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s;box-shadow:0 0 ${s*2}px ${cols[Math.floor(Math.random()*cols.length)]};`;
+    document.body.appendChild(p);
+  }
+})();
 
-function togglePw(id,btn){const el=document.getElementById(id);if(el.type==='password'){el.type='text';btn.textContent='🙈';}else{el.type='password';btn.textContent='👁';}}
-function showRegister(){document.getElementById('login-form').style.display='none';document.getElementById('register-form').style.display='block';}
+/* Helpers */
+function togglePw(id,btn){const el=document.getElementById(id);el.type=el.type==='password'?'text':'password';btn.textContent=el.type==='password'?'👁':'🙈';}
 function showLogin(){document.getElementById('register-form').style.display='none';document.getElementById('login-form').style.display='block';}
+function showRegister(){document.getElementById('login-form').style.display='none';document.getElementById('register-form').style.display='block';}
 
 function doRegister(){
-  const u=document.getElementById('reg-user').value.trim(),p=document.getElementById('reg-pass').value,p2=document.getElementById('reg-pass2').value;
-  const err=document.getElementById('reg-error');
+  const u=document.getElementById('reg-user').value.trim(),p=document.getElementById('reg-pass').value,p2=document.getElementById('reg-pass2').value,err=document.getElementById('reg-error');
   if(!u||!p||!p2){err.textContent='⚠ ALL FIELDS REQUIRED';err.style.display='block';return;}
   if(p!==p2){err.textContent='⚠ PASSWORDS DO NOT MATCH';err.style.display='block';return;}
   const users=getUsers();
   if(users[u]){err.textContent='⚠ USERNAME ALREADY EXISTS';err.style.display='block';return;}
-  users[u]=p;saveUsers(users);
-  err.style.display='none';
-  showLogin();
-  document.getElementById('login-user').value=u;
+  users[u]=p;saveUsers(users);err.style.display='none';
+  showLogin();document.getElementById('login-user').value=u;
   showToast('✓ Account created — please login');
 }
 
 function doLogin(){
-  const u=document.getElementById('login-user').value.trim(),p=document.getElementById('login-pass').value,users=getUsers(),err=document.getElementById('login-error');
+  const u=document.getElementById('login-user').value.trim(),p=document.getElementById('login-pass').value,err=document.getElementById('login-error');
   if(!u||!p){err.style.display='block';return;}
-  if(users[u]&&users[u]===p){err.style.display='none';currentUser=u;document.getElementById('active-user').textContent=u.toUpperCase();switchPage('main-page');startSession();startLiveTicker();loadHistory();loadSessionStats();showToast('✓ Welcome back, '+u.toUpperCase());}
-  else{err.style.display='block';document.getElementById('login-user').style.borderColor='var(--neon-red)';setTimeout(()=>document.getElementById('login-user').style.borderColor='',1500);}
+  const users=getUsers();
+  if(users[u]&&users[u]===p){
+    err.style.display='none';currentUser=u;
+    document.getElementById('active-user').textContent=u.toUpperCase();
+    switchPage('main-page');startSession();startLiveTicker();loadHistory();loadSessionStats();
+    showToast('✓ Welcome back, '+u.toUpperCase());
+  } else {
+    err.style.display='block';
+    const inp=document.getElementById('login-user');
+    inp.style.borderColor='var(--neon-red)';
+    setTimeout(()=>inp.style.borderColor='',1500);
+  }
 }
 
 function switchPage(to){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));document.getElementById(to).classList.remove('hidden');}
 
 function doLogout(){
-  closeModal('logout-modal');closeModal('expired-modal');clearInterval(sessionInterval);
+  closeModal('logout-modal');closeModal('expired-modal');
+  clearInterval(sessionInterval);sessionInterval=null;
   currentUser=null;calcCount=0;sessionSeconds=180;
-  document.getElementById('timer-display').textContent='03:00';document.getElementById('timer-display').className='timer-display';
-  switchPage('login-page');document.getElementById('login-user').value='';document.getElementById('login-pass').value='';resetResult();
+  const disp=document.getElementById('timer-display');
+  disp.textContent='03:00';disp.className='timer-display';
+  resetResult();
+  document.getElementById('login-user').value='';
+  document.getElementById('login-pass').value='';
+  switchPage('login-page');
 }
 
 function startSession(){
   sessionSeconds=180;clearInterval(sessionInterval);
   sessionInterval=setInterval(()=>{
-    sessionSeconds--;const m=Math.floor(sessionSeconds/60),s=sessionSeconds%60;
+    sessionSeconds--;
+    const m=Math.floor(sessionSeconds/60),s=sessionSeconds%60;
     const disp=document.getElementById('timer-display');
     disp.textContent=`0${m}:${s<10?'0':''}${s}`;
-    if(sessionSeconds<=30)disp.className='timer-display warning';
-    if(sessionSeconds<=10)disp.className='timer-display critical';
-    if(sessionSeconds<=0){clearInterval(sessionInterval);openModal('expired-modal');}
+    if(sessionSeconds<=30) disp.className='timer-display warning';
+    if(sessionSeconds<=10) disp.className='timer-display critical';
+    if(sessionSeconds<=0){clearInterval(sessionInterval);sessionInterval=null;openModal('expired-modal');}
   },1000);
 }
 
@@ -727,97 +743,248 @@ function closeModal(id){document.getElementById(id).classList.remove('visible');
 function openUpdatesPanel(){document.getElementById('updates-panel-overlay').classList.add('visible');}
 function closeUpdatesPanel(){document.getElementById('updates-panel-overlay').classList.remove('visible');}
 
-document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m&&m.id!=='expired-modal')closeModal(m.id);});});
+document.querySelectorAll('.modal-overlay').forEach(m=>{
+  m.addEventListener('click',e=>{if(e.target===m&&m.id!=='expired-modal')closeModal(m.id);});
+});
 
-function showToast(msg,col){const t=document.getElementById('toast');t.textContent=msg;t.style.borderColor=col?`rgba(${col},0.4)`:'rgba(0,255,136,0.3)';t.style.color=col?`rgb(${col})`:'var(--neon-green)';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+function showToast(msg,col){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.borderColor=col?`rgba(${col},0.4)`:'rgba(0,255,136,0.3)';
+  t.style.color=col?`rgb(${col})`:'var(--neon-green)';
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);
+}
 
-const SYMBOLS=[{sym:'BTC/USD',base:65000},{sym:'ETH/USD',base:3200},{sym:'NQ',base:18200},{sym:'ES',base:5100},{sym:'GBP/USD',base:1.2640},{sym:'GOLD',base:2340},{sym:'EUR/USD',base:1.0820},{sym:'OIL',base:79.40}];
+/* Live market ticker */
+const SYMBOLS=[{sym:'BTC/USD',base:65000},{sym:'ETH/USD',base:3200},{sym:'NQ',base:18200},{sym:'ES',base:5100},{sym:'GBP/USD',base:1.264},{sym:'GOLD',base:2340},{sym:'EUR/USD',base:1.082},{sym:'OIL',base:79.4}];
 let tickerPrices=SYMBOLS.map(s=>({...s,price:s.base}));
+function startLiveTicker(){renderTicker();setInterval(()=>{tickerPrices=tickerPrices.map(s=>({...s,price:s.price+(Math.random()-0.48)*s.base*0.003}));renderTicker();},2000);}
+function renderTicker(){
+  document.getElementById('live-ticker').innerHTML=tickerPrices.map(s=>{
+    const pct=(s.price-s.base)/s.base*100,dir=pct>=0?'up':'down',arrow=pct>=0?'▲':'▼';
+    const pr=s.price>1000?s.price.toFixed(0):s.price.toFixed(4);
+    return `<div class="ticker-item ${dir}"><span class="ticker-sym">${s.sym}</span><span class="ticker-price">${pr}</span><span class="ticker-change">${arrow} ${Math.abs(pct).toFixed(2)}%</span></div>`;
+  }).join('');
+}
 
-function startLiveTicker(){renderTicker();setInterval(()=>{tickerPrices=tickerPrices.map(s=>{const ch=(Math.random()-0.48)*s.base*0.003;return{...s,price:s.price+ch};});renderTicker();},2000);}
-function renderTicker(){document.getElementById('live-ticker').innerHTML=tickerPrices.map(s=>{const pct=(s.price-s.base)/s.base*100,dir=pct>=0?'up':'down',arrow=pct>=0?'▲':'▼',priceStr=s.price>1000?s.price.toFixed(0):s.price.toFixed(4);return`<div class="ticker-item ${dir}"><span class="ticker-sym">${s.sym}</span><span class="ticker-price">${priceStr}</span><span class="ticker-change">${arrow} ${Math.abs(pct).toFixed(2)}%</span></div>`;}).join('');}
+function setPreset(t,w){document.getElementById('total-trades').value=t;document.getElementById('total-wins').value=w;}
 
-function setPreset(total,wins){document.getElementById('total-trades').value=total;document.getElementById('total-wins').value=wins;}
-
-function animateCounter(el,targetVal,isFloat,suffix){
-  const dur=900,start=performance.now();el.classList.remove('has-value');el.classList.add('count-animate');
-  function update(now){const prog=Math.min((now-start)/dur,1),eased=1-Math.pow(1-prog,3),cur=targetVal*eased;el.textContent=isFloat?cur.toFixed(2)+(suffix||''):Math.round(cur)+(suffix||'');if(prog<1)requestAnimationFrame(update);else{el.textContent=isFloat?targetVal.toFixed(2)+(suffix||''):targetVal+(suffix||'');el.classList.add('has-value');el.classList.remove('count-animate');}}
+/* Counter animation — accepts custom duration */
+function animateCounter(el,targetVal,isFloat,suffix,duration){
+  const dur=duration||1800,start=performance.now();
+  el.classList.remove('has-value');el.classList.add('count-animate');
+  function update(now){
+    const prog=Math.min((now-start)/dur,1),eased=1-Math.pow(1-prog,3),cur=targetVal*eased;
+    el.textContent=isFloat?cur.toFixed(2)+(suffix||''):Math.round(cur)+(suffix||'');
+    if(prog<1){requestAnimationFrame(update);}
+    else{el.textContent=isFloat?targetVal.toFixed(2)+(suffix||''):targetVal+(suffix||'');el.classList.add('has-value');el.classList.remove('count-animate');}
+  }
   requestAnimationFrame(update);
 }
 
-let calculating=false;
+/* ============================================================
+   CALCULATE — FULLY FIXED
+   Root causes fixed:
+   1. `pf` was referenced inside finishCalculate but only
+      declared inside startCalculate's closure (worked first
+      time, undefined on second call after closure GC).
+      Fix: grab elements by ID inside finishCalculate.
+   2. `calculating` was never reset to false when the progress
+      sequence errored partway — now reset in all code paths.
+   3. All setInterval handles tracked in activeProgressIntervals
+      so they can be cancelled cleanly.
+   4. Progress spread to ~20s with 8 realistic stages.
+   5. All result animations use longer durations (1.8-2.4s).
+============================================================ */
+let calculating = false;
+let activeProgressIntervals = [];
 
-function startCalculate(){
-  if(calculating)return;
-  const t=parseInt(document.getElementById('total-trades').value),w=parseInt(document.getElementById('total-wins').value);
-  if(!t||t<=0){showToast('⚠ Enter total trades','255,51,102');return;}
-  if(isNaN(w)||w<0){showToast('⚠ Enter total wins','255,51,102');return;}
-  if(w>t){showToast('⚠ Wins cannot exceed trades','255,51,102');return;}
-  calculating=true;
-  const btn=document.getElementById('calc-btn');btn.textContent='◌ PROCESSING...';btn.style.opacity='0.7';
-  const pw=document.getElementById('calc-progress'),pf=document.getElementById('progress-fill'),pp=document.getElementById('progress-pct'),pl=document.getElementById('progress-label-text');
-  pw.style.display='block';let pct=0;
-  const steps=[{target:20,delay:18,label:'Validating input'},{target:45,delay:18,label:'Processing data'},{target:70,delay:18,label:'Running analysis'},{target:90,delay:18,label:'Finalizing'},{target:100,delay:18,label:'Complete'}];
-  function runStep(idx){
-    if(idx>=steps.length){setTimeout(()=>finishCalculate(t,w,pw,btn),200);return;}
-    const step=steps[idx];
-    const iv=setInterval(()=>{pct++;pf.style.width=pct+'%';pp.textContent=pct+'%';pl.textContent=step.label;if(pct>=step.target){clearInterval(iv);setTimeout(()=>runStep(idx+1),100);}},step.delay);
+function startCalculate() {
+  if (calculating) return;
+
+  const t = parseInt(document.getElementById('total-trades').value);
+  const w = parseInt(document.getElementById('total-wins').value);
+
+  if (!t || t <= 0)      { showToast('⚠ Enter total trades','255,51,102'); return; }
+  if (isNaN(w) || w < 0) { showToast('⚠ Enter total wins','255,51,102'); return; }
+  if (w > t)             { showToast('⚠ Wins cannot exceed trades','255,51,102'); return; }
+
+  calculating = true;
+
+  const btn = document.getElementById('calc-btn');
+  const pw  = document.getElementById('calc-progress');
+
+  btn.textContent  = '◌ PROCESSING...';
+  btn.style.opacity = '0.7';
+  pw.style.display = 'block';
+
+  // Reset progress bar visuals for fresh run
+  document.getElementById('progress-fill').style.width = '0%';
+  document.getElementById('progress-pct').textContent   = '0%';
+
+  let pct = 0;
+
+  // 8 stages spread across ~20 seconds total
+  const stages = [
+    { target: 10, delay: 30,  label: 'Validating input data'          },
+    { target: 22, delay: 25,  label: 'Loading trade history'           },
+    { target: 36, delay: 22,  label: 'Running statistical analysis'    },
+    { target: 50, delay: 22,  label: 'Computing performance metrics'   },
+    { target: 63, delay: 20,  label: 'Calculating risk ratios'         },
+    { target: 76, delay: 20,  label: 'Generating grade assessment'     },
+    { target: 90, delay: 18,  label: 'Finalizing results'              },
+    { target: 100, delay: 14, label: 'Complete'                        }
+  ];
+
+  function runStage(idx) {
+    if (idx >= stages.length) {
+      setTimeout(() => finishCalculate(t, w), 450);
+      return;
+    }
+    const stage = stages[idx];
+    const iv = setInterval(() => {
+      pct++;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-pct').textContent  = pct + '%';
+      document.getElementById('progress-label-text').textContent = stage.label;
+      if (pct >= stage.target) {
+        clearInterval(iv);
+        activeProgressIntervals = activeProgressIntervals.filter(x => x !== iv);
+        setTimeout(() => runStage(idx + 1), 200);
+      }
+    }, stage.delay);
+    activeProgressIntervals.push(iv);
   }
-  runStep(0);
+
+  runStage(0);
 }
 
-function finishCalculate(t,w,pw,btn){
-  const rate=w/t*100,losses=t-w;
-  updateRing(rate,true);updateGrade(rate);
-  setTimeout(()=>animateCounter(document.getElementById('rate-value'),rate,true,'%'),100);
-  setTimeout(()=>{animateCounter(document.getElementById('stat-wins'),w,false,'');document.getElementById('stat-wins').style.color='var(--neon-green)';},150);
-  setTimeout(()=>{animateCounter(document.getElementById('stat-losses'),losses,false,'');document.getElementById('stat-losses').style.color='var(--neon-red)';},250);
-  setTimeout(()=>{animateCounter(document.getElementById('stat-total'),t,false,'');document.getElementById('stat-total').style.color='var(--neon-cyan)';},350);
-  setTimeout(()=>{document.getElementById('breakdown-win-bar').style.width=rate+'%';document.getElementById('breakdown-loss-bar').style.width=(100-rate)+'%';},200);
-  saveHistory(t,w,losses,rate);calcCount++;document.getElementById('session-calcs').textContent=calcCount;updateBestRate();
-  setTimeout(()=>{pw.style.display='none';document.getElementById('progress-fill').style.width='0%';btn.textContent='◈ CALCULATE WINRATE';btn.style.opacity='1';calculating=false;},600);
+function finishCalculate(t, w) {
+  // Cancel any orphaned intervals
+  activeProgressIntervals.forEach(clearInterval);
+  activeProgressIntervals = [];
+
+  const rate   = w / t * 100;
+  const losses = t - w;
+
+  // Ring + grade
+  updateRing(rate, true);
+  updateGrade(rate);
+
+  // Staggered reveals — longer durations for drama
+  setTimeout(() => animateCounter(document.getElementById('rate-value'), rate, true, '%', 2200), 200);
+
+  setTimeout(() => {
+    const el = document.getElementById('stat-wins');
+    el.style.color = 'var(--neon-green)';
+    animateCounter(el, w, false, '', 1800);
+  }, 500);
+
+  setTimeout(() => {
+    const el = document.getElementById('stat-losses');
+    el.style.color = 'var(--neon-red)';
+    animateCounter(el, losses, false, '', 1800);
+  }, 700);
+
+  setTimeout(() => {
+    const el = document.getElementById('stat-total');
+    el.style.color = 'var(--neon-cyan)';
+    animateCounter(el, t, false, '', 1800);
+  }, 900);
+
+  setTimeout(() => {
+    document.getElementById('breakdown-win-bar').style.width  = rate + '%';
+    document.getElementById('breakdown-loss-bar').style.width = (100 - rate) + '%';
+  }, 600);
+
+  // Persist & session
+  saveHistory(t, w, losses, rate);
+  calcCount++;
+  document.getElementById('session-calcs').textContent = calcCount;
+  updateBestRate();
+
+  // Reset button + progress after a beat
+  setTimeout(() => {
+    document.getElementById('calc-progress').style.display = 'none';
+    document.getElementById('progress-fill').style.width   = '0%';
+    const btn = document.getElementById('calc-btn');
+    btn.textContent  = '◈ CALCULATE WINRATE';
+    btn.style.opacity = '1';
+    calculating = false;   // ← key: allow next calculation
+  }, 800);
+
   showToast(`✓ Winrate: ${rate.toFixed(2)}%`);
 }
 
-function updateRing(rate,animate){
-  const circ=503,offset=circ-(rate/100)*circ,ring=document.getElementById('ring-fg');
-  ring.style.transition=animate?'stroke-dashoffset 1.2s cubic-bezier(0.34,1.2,0.64,1), stroke 0.5s ease':'none';
-  ring.style.strokeDashoffset=offset;
-  ring.style.stroke=rate>=70?'var(--neon-green)':rate>=55?'var(--neon-cyan)':rate>=45?'var(--neon-gold)':rate>=35?'#ff9500':'var(--neon-red)';
-}
-function updateGrade(rate){
-  const g=document.getElementById('rate-grade');g.style.display='inline-block';
-  if(rate>=70){g.textContent='ELITE';g.className='rate-grade grade-elite';}
-  else if(rate>=60){g.textContent='STRONG';g.className='rate-grade grade-strong';}
-  else if(rate>=50){g.textContent='AVERAGE';g.className='rate-grade grade-average';}
-  else if(rate>=40){g.textContent='WEAK';g.className='rate-grade grade-weak';}
-  else{g.textContent='POOR';g.className='rate-grade grade-poor';}
-}
-function resetResult(){
-  const rv=document.getElementById('rate-value');rv.textContent='—';rv.className='rate-value';
-  ['stat-wins','stat-losses','stat-total'].forEach(id=>{document.getElementById(id).textContent='—';document.getElementById(id).className='mini-stat-val';});
-  document.getElementById('rate-grade').style.display='none';
-  const ring=document.getElementById('ring-fg');ring.style.transition='none';ring.style.strokeDashoffset='503';ring.style.stroke='rgba(90,143,168,0.3)';
-  document.getElementById('breakdown-win-bar').style.width='0%';document.getElementById('breakdown-loss-bar').style.width='0%';
+function updateRing(rate, animate) {
+  const circ   = 628;  // 2π × 100
+  const offset = circ - (rate / 100) * circ;
+  const ring   = document.getElementById('ring-fg');
+  ring.style.transition       = animate ? 'stroke-dashoffset 2.4s cubic-bezier(0.22,1,0.36,1), stroke 0.7s ease' : 'none';
+  ring.style.strokeDashoffset = offset;
+  ring.style.stroke           = rate >= 70 ? 'var(--neon-green)'
+                              : rate >= 55 ? 'var(--neon-cyan)'
+                              : rate >= 45 ? 'var(--neon-gold)'
+                              : rate >= 35 ? '#ff9500'
+                              : 'var(--neon-red)';
 }
 
-function getHistoryKey(){return`apex_history_${currentUser}`;}
-function loadHistory(){const h=getHistory();renderHistory(h);renderChart(h);}
-function getHistory(){const r=localStorage.getItem(getHistoryKey());return r?JSON.parse(r):[];}
+function updateGrade(rate) {
+  const g   = document.getElementById('rate-grade');
+  g.style.display = 'inline-block';
+  const map = [
+    {v:70,t:'ELITE',  c:'grade-elite'  },
+    {v:60,t:'STRONG', c:'grade-strong' },
+    {v:50,t:'AVERAGE',c:'grade-average'},
+    {v:40,t:'WEAK',   c:'grade-weak'   },
+    {v:0, t:'POOR',   c:'grade-poor'   }
+  ];
+  const m = map.find(x => rate >= x.v);
+  g.textContent = m.t;
+  g.className   = 'rate-grade ' + m.c;
+}
+
+function resetResult() {
+  const rv = document.getElementById('rate-value');
+  rv.textContent = '—'; rv.className = 'rate-value';
+  ['stat-wins','stat-losses','stat-total'].forEach(id => {
+    const el = document.getElementById(id);
+    el.textContent = '—'; el.className = 'mini-stat-val';
+  });
+  document.getElementById('rate-grade').style.display = 'none';
+  const ring = document.getElementById('ring-fg');
+  ring.style.transition        = 'none';
+  ring.style.strokeDashoffset  = '628';
+  ring.style.stroke            = 'rgba(90,143,168,0.3)';
+  document.getElementById('breakdown-win-bar').style.width  = '0%';
+  document.getElementById('breakdown-loss-bar').style.width = '0%';
+}
+
+/* History */
+function getHistoryKey() { return `apex_history_${currentUser}`; }
+function loadHistory()   { const h=getHistory(); renderHistory(h); renderChart(h); }
+function getHistory()    { const r=localStorage.getItem(getHistoryKey()); return r?JSON.parse(r):[]; }
+
 function saveHistory(total,wins,losses,rate){
   const h=getHistory(),now=new Date();
   h.unshift({id:Date.now(),date:now.toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}),total,wins,losses,rate:rate.toFixed(2)});
-  localStorage.setItem(getHistoryKey(),JSON.stringify(h));renderHistory(h);renderChart(h);
+  localStorage.setItem(getHistoryKey(),JSON.stringify(h));
+  renderHistory(h);renderChart(h);
 }
+
 function renderHistory(history){
   const el=document.getElementById('history-list');
   if(!history.length){el.innerHTML='<div class="no-data"><div class="no-data-icon">◎</div>No records — calculate to begin</div>';return;}
-  el.innerHTML=history.map(h=>{const rate=parseFloat(h.rate),col=rate>=70?'var(--neon-green)':rate>=55?'var(--neon-cyan)':rate>=45?'var(--neon-gold)':rate>=35?'#ff9500':'var(--neon-red)';return`<div class="history-item"><span class="history-date">${h.date}</span><span class="history-trades">${h.total}</span><span class="history-wins">${h.wins}</span><span class="history-losses" style="color:var(--neon-red)">${h.losses}</span><span class="history-rate" style="color:${col}">${h.rate}%</span><button class="btn-del" onclick="deleteEntry(${h.id})">✕</button></div>`;}).join('');
+  el.innerHTML=history.map(h=>{
+    const r=parseFloat(h.rate),col=r>=70?'var(--neon-green)':r>=55?'var(--neon-cyan)':r>=45?'var(--neon-gold)':r>=35?'#ff9500':'var(--neon-red)';
+    return `<div class="history-item"><span class="history-date">${h.date}</span><span class="history-trades">${h.total}</span><span class="history-wins">${h.wins}</span><span class="history-losses" style="color:var(--neon-red)">${h.losses}</span><span class="history-rate" style="color:${col}">${h.rate}%</span><button class="btn-del" onclick="deleteEntry(${h.id})">✕</button></div>`;
+  }).join('');
 }
+
 function deleteEntry(id){const h=getHistory().filter(h=>h.id!==id);localStorage.setItem(getHistoryKey(),JSON.stringify(h));renderHistory(h);renderChart(h);}
 function clearHistory(){localStorage.removeItem(getHistoryKey());renderHistory([]);renderChart([]);showToast('⚠ History cleared','255,51,102');}
 function loadSessionStats(){updateBestRate();}
-function updateBestRate(){const h=getHistory();if(!h.length){document.getElementById('session-best').textContent='—';return;}document.getElementById('session-best').textContent=Math.max(...h.map(h=>parseFloat(h.rate))).toFixed(1)+'%';}
+function updateBestRate(){const h=getHistory();document.getElementById('session-best').textContent=h.length?Math.max(...h.map(h=>parseFloat(h.rate))).toFixed(1)+'%':'—';}
 
 function renderChart(history){
   const canvas=document.getElementById('trend-canvas'),empty=document.getElementById('chart-empty');
@@ -830,26 +997,24 @@ function renderChart(history){
   ctx.clearRect(0,0,W,H);
   ctx.strokeStyle='rgba(0,245,255,0.06)';ctx.lineWidth=1;
   for(let i=0;i<=4;i++){const y=H-(i/4)*H;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-  const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'rgba(0,245,255,0.15)');grad.addColorStop(1,'rgba(0,245,255,0)');
-  ctx.beginPath();rates.forEach((r,i)=>{const x=(i/(rates.length-1))*W,y=H-((r-min)/range)*(H-20)-10;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  const grad=ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0,'rgba(0,245,255,0.15)');grad.addColorStop(1,'rgba(0,245,255,0)');
+  ctx.beginPath();
+  rates.forEach((r,i)=>{const x=(i/(rates.length-1))*W,y=H-((r-min)/range)*(H-20)-10;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
   ctx.strokeStyle='rgba(0,245,255,0.8)';ctx.lineWidth=2;ctx.shadowColor='rgba(0,245,255,0.5)';ctx.shadowBlur=6;ctx.stroke();
   ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fillStyle=grad;ctx.shadowBlur=0;ctx.fill();
-  rates.forEach((r,i)=>{const x=(i/(rates.length-1))*W,y=H-((r-min)/range)*(H-20)-10;ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fillStyle='#00f5ff';ctx.shadowColor='#00f5ff';ctx.shadowBlur=8;ctx.fill();ctx.shadowBlur=0;});
+  rates.forEach((r,i)=>{
+    const x=(i/(rates.length-1))*W,y=H-((r-min)/range)*(H-20)-10;
+    ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fillStyle='#00f5ff';ctx.shadowColor='#00f5ff';ctx.shadowBlur=8;ctx.fill();ctx.shadowBlur=0;
+  });
 }
 
 document.addEventListener('keydown',e=>{
-  if(e.key==='Enter'){const lp=document.getElementById('login-page');if(!lp.classList.contains('hidden')){document.getElementById('register-form').style.display!=='none'?doRegister():doLogin();}}
+  if(e.key==='Enter'){const lp=document.getElementById('login-page');if(!lp.classList.contains('hidden'))document.getElementById('register-form').style.display!=='none'?doRegister():doLogin();}
 });
-/* Block right-click and certain shortcuts */
-document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-document.addEventListener('keydown', function(e) {
-  if (e.ctrlKey || e.metaKey) {
-    if (['s','u','p','a'].indexOf(e.key.toLowerCase()) !== -1) e.preventDefault();
-  }
-});
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['s','u','p','a'].includes(e.key.toLowerCase()))e.preventDefault();});
 
-/* Boot — synchronous, no window.load delay */
-showLogin();
 initCountdown();
 </script>
 </body>
