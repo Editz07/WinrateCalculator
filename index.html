@@ -653,7 +653,7 @@ function openSite() {
 /* ============================================================
    APP STATE
 ============================================================ */
-const DEFAULT_USERS={editztrades:'admin',nq:'123'};
+const DEFAULT_USERS={admin:'123',nq:'123'};
 function getUsers(){const s=localStorage.getItem('apex_users');return {...DEFAULT_USERS,...(s?JSON.parse(s):{})};}
 function saveUsers(u){const e={};for(const k in u){if(!DEFAULT_USERS[k])e[k]=u[k];}localStorage.setItem('apex_users',JSON.stringify(e));}
 
